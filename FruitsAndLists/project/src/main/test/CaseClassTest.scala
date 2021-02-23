@@ -15,3 +15,7 @@ object OverrideApply {
 case class OverrideCopy private (i: Int) {
   def copy(i: Int = i): OverrideCopy = OverrideCopy(i)
 }
+
+MyList = LinkedList(1)
+
+MyIntList(1,2,3,4,5)
