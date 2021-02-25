@@ -1,85 +1,141 @@
-packge caseclass
+// packge caseclass
 
-object Case class {
-    class CaseClass
+object Case {
+    class CaseClass(item: Int)
 
     object CaseClass {
 
-        def apply(obj: Int): CaseClass = new CaseClass(obj)
+        def apply(item: Int): CaseClass = new CaseClass(item)
 
-        def unapply(tpe: CaseClass): Option[CaseClass]
+        def unapply(obj: CaseClass): Option[CaseClass] = obj.item
 
-        def toString(elem: Int): String = String.valueOf(elem)
-
-        def canEqual(obj: Int) = obj.isInstanceOf[CaseClass]
+        def toString: String = this.toString
         
-        def equals(that: Int): Boolean = that match { 
-            case that: CaseClass => that.canEqual(this) &&  
-                 this.hashCode == that.hashCode 
+        // def equals(that: CaseClass): Boolean = that match { 
+        //     case that => this.item == that.item 
+        //     case _ => false
+        // }
+
+        def canEqual(obj: Any): Boolean = obj.isInstanceOf[CaseClass]
+
+        def equals(obj: Any): Boolean = this.eq(obj) || obj match {
+            case that: CaseClass => {
+                this.item == that.item
+            }
             case _ => false
         }
 
-        final def ==(that: Int): Boolean = this equals that
+        final def ==(that: CaseClass): Boolean = this equals that
 
-        def hashCode: Int
+        def productPrefix: String = "CaseClass"
+        def hashCode(): Int = this.hashCode
+        def copy(item: Int): CaseClass = new CaseClass(item)
+
+    }
 }
 
 object Fruits {
 
     sealed trait MyIntOption
 
-    case class MySomeInt(seed: Int) extends MyIntOption
-
-    object MySomeInt {
-        def apply(seed: Int): MySomeInt = new MySomeInt(seed)
+    object MyIntOption  {
+        // def apply(seed: Int): MyIntOption = new MyIntOption(seed) // trait MyIntOption is abstract; cannot be instantiated
         
-        def unapply(obj: MySomeInt): Option[Int] = obj.seed
+        def unapply(obj: MyIntOption): Option[Int] = obj.seed
 
-        def hashCode: Int = super.hashCode
+        def hashCode(): Int = this.hashCode
 
-        def canEqual(obj: Any) = obj.isInstanceOf[MySomeInt]
+        def canEqual(obj: Any) = obj.isInstanceOf[MyIntOption]
 
-        def equals(that: MySomeInt): Boolean = that match {
-            case that: MySomeInt => {
-                that.canEqual(this) &&
-                this.hashCode == that.hashCode &&
+        def equals(obj: Any): Boolean = this.eq(obj) || obj match {
+            case that: MyIntOption => {
                 this.seed == that.seed
             }
             case _ => false
         }
-        def toString(seed: Int): Option[String] = if (seed == 0) "" else seed.toString
+        def toString(): Option[String] = this.toString
 
-        def copy(obj: MySomeInt): MySomeInt = new MySomeInt(obj.seed)
+        // def copy(seed: Int): MyIntOption = new MyIntOption(seed) // trait MyIntOption is abstract; cannot be instantiated
     }
 
-    case class MyNone extends MyIntOption
+    case class MySomeInt(seed: Int) extends MyIntOption
+
+    object MySomeInt
+
+    case class MyNone() extends MyIntOption 
 
     object MyNone
 }
 
 object LinkedListImp {
 
-    case class MyIntList(elem: Int*)
+    // case class MyIntList(elem: Int)
 
-    case class Nil() extends MyIntList {
-        def isEmpty = true
-        def head = throw new java.util.NoSuchElementException("head of empty list")
-        def tail = throw new java.util.NoSuchElementException("tail of empty list")
-    }
+    // object MyIntList {
+        // val isEmpty: Boolean
+        // val head: Int
+        // val tail: MyIntList
 
-    case class Cons(val head: A, val tail: MyIntList) extends MyIntList {
-        def isEmpty = false
-    }
+        // def apply(elem: Option[Int, Array[Int]]): Option[MyIntList] = elem match {
+        //     // case Nil = 
+        //     case Int => new MyIntList(elem)
+        //     // case Array[_,_*] => MyIntList(elem)
+        //     case _ => "empty or unexpected param"
+        // }
 
-    object MyIntList {
-        def isEmpty: Boolean
+        // def add(elem: Int): MyIntList = {
+        //     this.tail = MyIntList(elem)
+        // }
+    // }
+
+
+
+    abstract class MyIntList {
+    // case class MyIntList()
+    // object MyIntList {
         def head: Int
         def tail: MyIntList
-
-        def apply(elem: Int*): MyIntList = elem match {
-            case elem.isEmpty = Unit()
-            case _ = Cons(a.head, apply(a.tail: _*))
-        }
+        def isEmpty: Boolean
+        def add(element: Int): MyIntList
     }
+
+    object EmptyIntList extends MyIntList {
+        def head: Int = throw new NoSuchElementException
+        def tail: MyIntList = throw new NoSuchElementException
+        def isEmpty: Boolean = true
+        def add(element: Int): MyIntList = new IntListOption(element, this)
+        // adds in the beginning and puts the current list in the tail
+    }
+
+    case class IntListOption(h: Int, t: MyIntList) extends MyIntList {
+        def head: Int = h
+        def tail: MyIntList = t
+        def isEmpty: Boolean = false
+        def add(element: Int): MyIntList = new IntListOption(element, this)
+    }
+
+
+
+
+
+
+    // case class MyIntList(elem: Int*)
+
+//     class Nil() extends MyIntList { WTF !!!!!!!!!
+//         def isEmpty = true
+//         def head = throw new java.util.NoSuchElementException("head of empty list")
+//         def tail = throw new java.util.NoSuchElementException("tail of empty list")
+//     }
+
+//     class Cons(val head: A, val tail: MyIntList) extends MyIntList {
+//         def isEmpty = false
+//     }
+
+//     abstract class MyIntList {
+//         def isEmpty: Boolean
+//         def head: Int
+//         def tail: MyIntList
+
+//     }
 
 }
