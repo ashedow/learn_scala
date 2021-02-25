@@ -1,6 +1,6 @@
-[0m[[0m[31merror[0m] [0m[0m/home/ya/Dev/project/java/scala/learn_scala/FruitsAndLists/project/src/main/scala/caseclass/Fruit.scala:10:62: value item is not a member of Case.CaseClass[0m
-[0m[[0m[31merror[0m] [0m[0m        def unapply(obj: CaseClass): Option[CaseClass] = obj.item[0m
-[0m[[0m[31merror[0m] [0m[0m                                                             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/ya/Dev/project/java/scala/learn_scala/FruitsAndLists/project/src/main/scala/caseclass/Fruit.scala:10:60: value item is not a member of Case.CaseClass[0m
+[0m[[0m[31merror[0m] [0m[0m        def unapply(obj: CaseClass): Some[CaseClass] = obj.item[0m
+[0m[[0m[31merror[0m] [0m[0m                                                           ^[0m
 [0m[[0m[31merror[0m] [0m[0m/home/ya/Dev/project/java/scala/learn_scala/FruitsAndLists/project/src/main/scala/caseclass/Fruit.scala:21:49: type mismatch;[0m
 [0m[[0m[31merror[0m] [0m[0m found   : Any[0m
 [0m[[0m[31merror[0m] [0m[0m required: AnyRef[0m
@@ -9,9 +9,12 @@
 [0m[[0m[31merror[0m] [0m[0m/home/ya/Dev/project/java/scala/learn_scala/FruitsAndLists/project/src/main/scala/caseclass/Fruit.scala:23:22: value item is not a member of object Case.CaseClass[0m
 [0m[[0m[31merror[0m] [0m[0m                this.item == that.item[0m
 [0m[[0m[31merror[0m] [0m[0m                     ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/ya/Dev/project/java/scala/learn_scala/FruitsAndLists/project/src/main/scala/caseclass/Fruit.scala:44:58: value seed is not a member of Fruits.MyIntOption[0m
-[0m[[0m[31merror[0m] [0m[0m        def unapply(obj: MyIntOption): Option[Int] = obj.seed[0m
-[0m[[0m[31merror[0m] [0m[0m                                                         ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/ya/Dev/project/java/scala/learn_scala/FruitsAndLists/project/src/main/scala/caseclass/Fruit.scala:67:12: MyNone is already defined as case class MyNone[0m
+[0m[[0m[31merror[0m] [0m[0m    object MyNone[0m
+[0m[[0m[31merror[0m] [0m[0m           ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/ya/Dev/project/java/scala/learn_scala/FruitsAndLists/project/src/main/scala/caseclass/Fruit.scala:44:56: value seed is not a member of Fruits.MyIntOption[0m
+[0m[[0m[31merror[0m] [0m[0m        def unapply(obj: MyIntOption): Some[Int] = obj.seed[0m
+[0m[[0m[31merror[0m] [0m[0m                                                       ^[0m
 [0m[[0m[31merror[0m] [0m[0m/home/ya/Dev/project/java/scala/learn_scala/FruitsAndLists/project/src/main/scala/caseclass/Fruit.scala:50:49: type mismatch;[0m
 [0m[[0m[31merror[0m] [0m[0m found   : Any[0m
 [0m[[0m[31merror[0m] [0m[0m required: AnyRef[0m
@@ -20,4 +23,4 @@
 [0m[[0m[31merror[0m] [0m[0m/home/ya/Dev/project/java/scala/learn_scala/FruitsAndLists/project/src/main/scala/caseclass/Fruit.scala:52:22: value seed is not a member of object Fruits.MyIntOption[0m
 [0m[[0m[31merror[0m] [0m[0m                this.seed == that.seed[0m
 [0m[[0m[31merror[0m] [0m[0m                     ^[0m
-[0m[[0m[31merror[0m] [0m[0m6 errors found[0m
+[0m[[0m[31merror[0m] [0m[0m7 errors found[0m

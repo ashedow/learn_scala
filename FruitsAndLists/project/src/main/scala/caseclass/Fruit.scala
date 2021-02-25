@@ -7,7 +7,7 @@ object Case {
 
         def apply(item: Int): CaseClass = new CaseClass(item)
 
-        def unapply(obj: CaseClass): Option[CaseClass] = obj.item
+        def unapply(obj: CaseClass): Some[CaseClass] = obj.item
 
         def toString: String = this.toString
         
@@ -41,7 +41,7 @@ object Fruits {
     object MyIntOption  {
         // def apply(seed: Int): MyIntOption = new MyIntOption(seed) // trait MyIntOption is abstract; cannot be instantiated
         
-        def unapply(obj: MyIntOption): Option[Int] = obj.seed
+        def unapply(obj: MyIntOption): Some[Int] = obj.seed
 
         def hashCode(): Int = this.hashCode
 
@@ -62,9 +62,7 @@ object Fruits {
 
     object MySomeInt
 
-    case class MyNone() extends MyIntOption 
-
-    object MyNone
+    case object MyNone extends MyIntOption
 }
 
 object LinkedListImp {
