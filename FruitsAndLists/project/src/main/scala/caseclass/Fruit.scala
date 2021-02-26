@@ -11,19 +11,20 @@ object Case {
 
         def toString: String = this.toString
         
-        // def equals(that: CaseClass): Boolean = that match { 
-        //     case that => this.item == that.item 
-        //     case _ => false
-        // }
+        def equals(that: CaseClass): Boolean = that match { 
+            case that => this.item == that.item 
+            case _ => false
+        }
 
         def canEqual(obj: Any): Boolean = obj.isInstanceOf[CaseClass]
 
-        def equals(obj: Any): Boolean = this.eq(obj) || obj match {
-            case that: CaseClass => {
-                this.item == that.item
-            }
-            case _ => false
-        }
+        // def equals(obj: Any): Boolean = (this, that) match {
+        //     case that: CaseClass => {
+        //         this.item == that.item
+        //     }
+        //     // case (CaseClass(this.item), CaseClass(that.item)) => this.item == that.item
+        //     case _ => false
+        // }
 
         final def ==(that: CaseClass): Boolean = this equals that
 
@@ -38,31 +39,31 @@ object Fruits {
 
     sealed trait MyIntOption
 
-    object MyIntOption  {
-        // def apply(seed: Int): MyIntOption = new MyIntOption(seed) // trait MyIntOption is abstract; cannot be instantiated
-        
-        def unapply(obj: MyIntOption): Option[Int] = Some(obj.seed)
-
-        def hashCode(): Int = this.hashCode
-
-        def canEqual(obj: Any) = obj.isInstanceOf[MyIntOption]
-
-        def equals(obj: Any): Boolean = this.eq(obj) || obj match {
-            case that: MyIntOption => {
-                this.seed == that.seed
-            }
-            case _ => false
-        }
-        def toString(): Option[String] = this.toString
-
-        // def copy(seed: Int): MyIntOption = new MyIntOption(seed) // trait MyIntOption is abstract; cannot be instantiated
-    }
+    object MyIntOption
 
     case class MySomeInt(seed: Int) extends MyIntOption
 
     object MySomeInt
 
     case object MyNone extends MyIntOption
+
+    def apply(i: Any): MyIntOption = i match {
+        case i: Int => MySomeInt(i)
+        case _ => MyNone
+    }
+    def unapply(obj: MyIntOption): Option[Int] = obj match {
+        case obj: MySomeInt => obj.seed
+        case obj: MyNone => null
+    }
+    def hashCode(): Int = this.hashCode
+    def canEqual(obj: Any) = obj.isInstanceOf[MyIntOption]
+    def equals(obj1: MyIntOption, obj2: MyIntOption): Boolean = (obj1, obj2) match {
+            case (MySomeInt(x), MySomeInt(y)) => x == y
+            case (MyNone, MyNone) => true
+            case _ => false
+        }
+    def toString(): Option[String] = this.toString
+
 }
 
 object LinkedListImp {
