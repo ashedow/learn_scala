@@ -39,11 +39,7 @@ object Fruits {
 
     sealed trait MyIntOption
 
-    object MyIntOption
-
     case class MySomeInt(seed: Int) extends MyIntOption
-
-    object MySomeInt
 
     case object MyNone extends MyIntOption
 
@@ -52,7 +48,7 @@ object Fruits {
         case _ => MyNone
     }
     def unapply(obj: MyIntOption): Option[Int] = obj match {
-        case obj: MySomeInt => obj.seed
+        case MySomeInt(x) => Some(obj.seed)
         case obj: MyNone => null
     }
     def hashCode(): Int = this.hashCode
@@ -89,13 +85,14 @@ object LinkedListImp {
 
 
 
-    abstract class MyIntList {
-    // case class MyIntList()
-    // object MyIntList {
+    sealed trait MyIntList {
+
+    object MyIntList {
         def head: Int
         def tail: MyIntList
         def isEmpty: Boolean
         def add(element: Int): MyIntList
+        def apply()
     }
 
     object EmptyIntList extends MyIntList {
