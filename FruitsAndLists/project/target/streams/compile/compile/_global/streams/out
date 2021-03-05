@@ -1,18 +1,40 @@
-[0m[[0m[31merror[0m] [0m[0m/home/ya/Dev/project/java/scala/learn_scala/FruitsAndLists/project/src/main/scala/caseclass/Fruit.scala:10:67: value item is not a member of Case.CaseClass[0m
-[0m[[0m[31merror[0m] [0m[0m        def unapply(obj: CaseClass): Option[CaseClass] = Some(obj.item)[0m
-[0m[[0m[31merror[0m] [0m[0m                                                                  ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/ya/Dev/project/java/scala/learn_scala/FruitsAndLists/project/src/main/scala/caseclass/Fruit.scala:15:31: value item is not a member of object Case.CaseClass[0m
-[0m[[0m[31merror[0m] [0m[0m            case that => this.item == that.item [0m
-[0m[[0m[31merror[0m] [0m[0m                              ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/ya/Dev/project/java/scala/learn_scala/FruitsAndLists/project/src/main/scala/caseclass/Fruit.scala:15:44: value item is not a member of Case.CaseClass[0m
-[0m[[0m[31merror[0m] [0m[0m            case that => this.item == that.item [0m
-[0m[[0m[31merror[0m] [0m[0m                                           ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/ya/Dev/project/java/scala/learn_scala/FruitsAndLists/project/src/main/scala/caseclass/Fruit.scala:51:36: type mismatch;[0m
-[0m[[0m[31merror[0m] [0m[0m found   : Int[0m
-[0m[[0m[31merror[0m] [0m[0m required: Option[Int][0m
-[0m[[0m[31merror[0m] [0m[0m        case obj: MySomeInt => obj.seed[0m
-[0m[[0m[31merror[0m] [0m[0m                                   ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/ya/Dev/project/java/scala/learn_scala/FruitsAndLists/project/src/main/scala/caseclass/Fruit.scala:52:19: not found: type MyNone[0m
-[0m[[0m[31merror[0m] [0m[0m        case obj: MyNone => null[0m
-[0m[[0m[31merror[0m] [0m[0m                  ^[0m
-[0m[[0m[31merror[0m] [0m[0m5 errors found[0m
+[0m[[0m[31merror[0m] [0m[0m/home/ya/Dev/project/java/scala/learn_scala/FruitsAndLists/project/src/main/scala/caseclass/Fruit.scala:60:22: value seed is not a member of Fruits.MyIntOption[0m
+[0m[[0m[31merror[0m] [0m[0m            case opt.seed => opt.seed[0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/ya/Dev/project/java/scala/learn_scala/FruitsAndLists/project/src/main/scala/caseclass/Fruit.scala:60:34: value seed is not a member of Fruits.MyIntOption[0m
+[0m[[0m[31merror[0m] [0m[0m            case opt.seed => opt.seed[0m
+[0m[[0m[31merror[0m] [0m[0m                                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/ya/Dev/project/java/scala/learn_scala/FruitsAndLists/project/src/main/scala/caseclass/Fruit.scala:71:21: not found: type EmptyIntList[0m
+[0m[[0m[31merror[0m] [0m[0m            case x: EmptyIntList => throw new Exception("head of empty list") [0m
+[0m[[0m[31merror[0m] [0m[0m                    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/ya/Dev/project/java/scala/learn_scala/FruitsAndLists/project/src/main/scala/caseclass/Fruit.scala:74:40: not found: type MyIntOption[0m
+[0m[[0m[31merror[0m] [0m[0m        def safeHead(list: MyIntList): MyIntOption = list match {[0m
+[0m[[0m[31merror[0m] [0m[0m                                       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/ya/Dev/project/java/scala/learn_scala/FruitsAndLists/project/src/main/scala/caseclass/Fruit.scala:75:21: not found: type EmptyIntList[0m
+[0m[[0m[31merror[0m] [0m[0m            case x: EmptyIntList => EmptyIntList[0m
+[0m[[0m[31merror[0m] [0m[0m                    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/ya/Dev/project/java/scala/learn_scala/FruitsAndLists/project/src/main/scala/caseclass/Fruit.scala:79:21: not found: type EmptyIntList[0m
+[0m[[0m[31merror[0m] [0m[0m            case x: EmptyIntList => throw new Exception("head of empty list") [0m
+[0m[[0m[31merror[0m] [0m[0m                    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/ya/Dev/project/java/scala/learn_scala/FruitsAndLists/project/src/main/scala/caseclass/Fruit.scala:80:41: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : LinkedListImp.MyIntList[0m
+[0m[[0m[31merror[0m] [0m[0m required: Int[0m
+[0m[[0m[31merror[0m] [0m[0m            case IntListOption(h, t) => t[0m
+[0m[[0m[31merror[0m] [0m[0m                                        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/ya/Dev/project/java/scala/learn_scala/FruitsAndLists/project/src/main/scala/caseclass/Fruit.scala:83:21: not found: type EmptyIntList[0m
+[0m[[0m[31merror[0m] [0m[0m            case x: EmptyIntList => true[0m
+[0m[[0m[31merror[0m] [0m[0m                    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/ya/Dev/project/java/scala/learn_scala/FruitsAndLists/project/src/main/scala/caseclass/Fruit.scala:87:18: constructor cannot be instantiated to expected type;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : LinkedListImp.IntListOption[0m
+[0m[[0m[31merror[0m] [0m[0m required: Int[0m
+[0m[[0m[31merror[0m] [0m[0m            case IntListOption(h, t) => h + join(t)[0m
+[0m[[0m[31merror[0m] [0m[0m                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/ya/Dev/project/java/scala/learn_scala/FruitsAndLists/project/src/main/scala/caseclass/Fruit.scala:88:18: pattern type is incompatible with expected type;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : LinkedListImp.EmptyIntList.type[0m
+[0m[[0m[31merror[0m] [0m[0m required: Int[0m
+[0m[[0m[31merror[0m] [0m[0m            case EmptyIntList => EmptyIntList(elem)[0m
+[0m[[0m[31merror[0m] [0m[0m                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/ya/Dev/project/java/scala/learn_scala/FruitsAndLists/project/src/main/scala/caseclass/Fruit.scala:88:46: LinkedListImp.EmptyIntList.type does not take parameters[0m
+[0m[[0m[31merror[0m] [0m[0m            case EmptyIntList => EmptyIntList(elem)[0m
+[0m[[0m[31merror[0m] [0m[0m                                             ^[0m
+[0m[[0m[31merror[0m] [0m[0m11 errors found[0m
