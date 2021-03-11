@@ -35,7 +35,7 @@ object Fruits {
         }
     }
 
-    case class MySomeInt(val seed: Int) extends MyIntOption
+    case class MySomeInt(seed: Int) extends MyIntOption
 
     case object MyNone extends MyIntOption
 
@@ -44,34 +44,33 @@ object Fruits {
             case i: Int => MySomeInt(i)
             case _ => MyNone
         }
-        // def unapply(obj: MyIntOption): Option[Int] = obj match {
-        //     case MySomeInt(x) => Some(obj.seed)
-        //     case obj: MyNone => None
-        // }
+        def unapply(obj: MyIntOption): Option[Int] = obj match {
+            case MySomeInt(x) => Some(obj.seed)
+            case MyNone => None
+        }
         // def hashCode(): Int = this.hashCode
         // def canEqual(obj: Any) = obj.isInstanceOf[MyIntOption]
         // def toString(): Option[String] = this.toString
-
         def getOrElse(opt: MyIntOption, default: Int): Int = opt match {
-            case opt.seed => opt.seed
-            case _ => -1
+            case MyIntOption(seed) => opt.seed
+            case _: MyIntOption => -1
         }
     }
 }
 
 object LinkedListImp {
-    sealed trait MyIntList 
+    sealed trait MyIntList
 
     object MyIntList {
         def head(list: MyIntList): Int = list match {
             case x: EmptyIntList => throw new Exception("head of empty list") 
             case IntListOption(h, t) => h
         }
-        def safeHead(list: MyIntList): MyIntOption = list match {
+        def safeHead(list: MyIntList): Either[EmptyIntList, Int] = list match {
             case x: EmptyIntList => EmptyIntList
             case IntListOption(h, t) => h
         }
-        def tail(list: MyIntList): Int = list match {
+        def tail(list: MyIntList): Option[MyIntList] = list match {
             case x: EmptyIntList => throw new Exception("head of empty list") 
             case IntListOption(h, t) => t
         }
@@ -80,8 +79,8 @@ object LinkedListImp {
             case _ => false
         }
         def add(elem: Int): MyIntList = elem match {
-            case IntListOption(h, t) => h + join(t)
-            case EmptyIntList => EmptyIntList(elem)
+            case IntListOption(head) => IntListOption(head, add(elem))
+            case EmptyIntList => apply(elem)
         }
         def apply(elem: Int*): MyIntList = elem match {
             case list if (!list.isEmpty) => IntListOption(list.head, apply(list.tail:_*))
