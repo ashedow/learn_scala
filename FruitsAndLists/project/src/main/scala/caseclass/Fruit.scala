@@ -66,11 +66,11 @@ object LinkedListImp {
             case x: EmptyIntList => throw new Exception("head of empty list") 
             case IntListOption(h, t) => h
         }
-        def safeHead(list: MyIntList): Either[EmptyIntList, Int] = list match {
-            case x: EmptyIntList => EmptyIntList
-            case IntListOption(h, t) => h
+        def safeHead(list: MyIntList): MyIntList = list match {
+            case x: EmptyIntList => EmptyIntList()
+            case IntListOption(h, t) => MyIntList(h)
         }
-        def tail(list: MyIntList): Option[MyIntList] = list match {
+        def tail(list: MyIntList): MyIntList = list match {
             case x: EmptyIntList => throw new Exception("head of empty list") 
             case IntListOption(h, t) => t
         }
@@ -84,11 +84,11 @@ object LinkedListImp {
         }
         def apply(elem: Int*): MyIntList = elem match {
             case list if (!list.isEmpty) => IntListOption(list.head, apply(list.tail:_*))
-            case _ => EmptyIntList
+            case _ => EmptyIntList()
         }
 
     }
 
-    object EmptyIntList extends MyIntList
+    case class EmptyIntList() extends MyIntList
     case class IntListOption(val h: Int, val t: MyIntList) extends MyIntList
 }

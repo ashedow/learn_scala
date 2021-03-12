@@ -4,26 +4,6 @@
 [0m[[0m[31merror[0m] [0m[0m/home/ya/Dev/project/java/scala/learn_scala/FruitsAndLists/project/src/main/scala/caseclass/Fruit.scala:55:43: value seed is not a member of Fruits.MyIntOption[0m
 [0m[[0m[31merror[0m] [0m[0m            case MyIntOption(seed) => opt.seed[0m
 [0m[[0m[31merror[0m] [0m[0m                                          ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/ya/Dev/project/java/scala/learn_scala/FruitsAndLists/project/src/main/scala/caseclass/Fruit.scala:66:21: not found: type EmptyIntList[0m
-[0m[[0m[31merror[0m] [0m[0m            case x: EmptyIntList => throw new Exception("head of empty list") [0m
-[0m[[0m[31merror[0m] [0m[0m                    ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/ya/Dev/project/java/scala/learn_scala/FruitsAndLists/project/src/main/scala/caseclass/Fruit.scala:69:47: not found: type EmptyIntList[0m
-[0m[[0m[31merror[0m] [0m[0m        def safeHead(list: MyIntList): Either[EmptyIntList, Int] = list match {[0m
-[0m[[0m[31merror[0m] [0m[0m                                              ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/ya/Dev/project/java/scala/learn_scala/FruitsAndLists/project/src/main/scala/caseclass/Fruit.scala:70:21: not found: type EmptyIntList[0m
-[0m[[0m[31merror[0m] [0m[0m            case x: EmptyIntList => EmptyIntList[0m
-[0m[[0m[31merror[0m] [0m[0m                    ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/ya/Dev/project/java/scala/learn_scala/FruitsAndLists/project/src/main/scala/caseclass/Fruit.scala:74:21: not found: type EmptyIntList[0m
-[0m[[0m[31merror[0m] [0m[0m            case x: EmptyIntList => throw new Exception("head of empty list") [0m
-[0m[[0m[31merror[0m] [0m[0m                    ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/ya/Dev/project/java/scala/learn_scala/FruitsAndLists/project/src/main/scala/caseclass/Fruit.scala:75:41: type mismatch;[0m
-[0m[[0m[31merror[0m] [0m[0m found   : LinkedListImp.MyIntList[0m
-[0m[[0m[31merror[0m] [0m[0m required: Option[LinkedListImp.MyIntList][0m
-[0m[[0m[31merror[0m] [0m[0m            case IntListOption(h, t) => t[0m
-[0m[[0m[31merror[0m] [0m[0m                                        ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/ya/Dev/project/java/scala/learn_scala/FruitsAndLists/project/src/main/scala/caseclass/Fruit.scala:78:21: not found: type EmptyIntList[0m
-[0m[[0m[31merror[0m] [0m[0m            case x: EmptyIntList => true[0m
-[0m[[0m[31merror[0m] [0m[0m                    ^[0m
 [0m[[0m[31merror[0m] [0m[0m/home/ya/Dev/project/java/scala/learn_scala/FruitsAndLists/project/src/main/scala/caseclass/Fruit.scala:82:18: constructor cannot be instantiated to expected type;[0m
 [0m[[0m[31merror[0m] [0m[0m found   : LinkedListImp.IntListOption[0m
 [0m[[0m[31merror[0m] [0m[0m required: Int[0m
@@ -32,6 +12,7 @@
 [0m[[0m[31merror[0m] [0m[0m/home/ya/Dev/project/java/scala/learn_scala/FruitsAndLists/project/src/main/scala/caseclass/Fruit.scala:83:18: pattern type is incompatible with expected type;[0m
 [0m[[0m[31merror[0m] [0m[0m found   : LinkedListImp.EmptyIntList.type[0m
 [0m[[0m[31merror[0m] [0m[0m required: Int[0m
+[0m[[0m[31merror[0m] [0m[0mNote: if you intended to match against the class, try `case _: EmptyIntList`[0m
 [0m[[0m[31merror[0m] [0m[0m            case EmptyIntList => apply(elem)[0m
 [0m[[0m[31merror[0m] [0m[0m                 ^[0m
-[0m[[0m[31merror[0m] [0m[0m10 errors found[0m
+[0m[[0m[31merror[0m] [0m[0mfour errors found[0m
